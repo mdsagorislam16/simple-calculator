@@ -1,13 +1,13 @@
-# 🧮 Modern Calculator App
+# 🧮 Simple Calculator App
 
-A clean, modern and responsive calculator built using **HTML, Tailwind CSS, and JavaScript**.  
+A clean, simple and responsive calculator built using **HTML, Tailwind CSS, and JavaScript**.  
 Designed with a smooth UI, hover effects, and mobile-friendly layout.
 
 ---
 
 ## ✨ Preview
 
-✔ Glass-style modern UI  
+✔ Glass-style UI  
 ✔ Smooth hover animations  
 ✔ Fully responsive (mobile + desktop)  
 ✔ Simple and fast calculator logic  
@@ -73,13 +73,8 @@ This calculator works perfectly on:
 
 Made with ❤️ using HTML, Tailwind CSS and JavaScript  
 For learning and practice purposes.
-
 ---
-
 ## ⚡ Getting Started
-1. Download the project
-2. Open `index.html` in your browser
-3. Start calculating 🎯
 1. Download the project
 2. Open `index.html` in your browser
 3. Start calculating 🎯
