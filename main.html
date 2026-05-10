@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculator</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gradient-to-br from-gray-100 to-gray-300 flex items-center justify-center min-h-screen p-4">
+
+  <div class="w-full max-w-md bg-white rounded-3xl shadow-2xl p-6">
+
+    <!-- Display -->
+    <input 
+      type="text"
+      id="display"
+      disabled
+      class="w-full h-20 mb-5 bg-gray-100 rounded-2xl text-right text-3xl px-4 text-gray-700 shadow-inner"
+    >
+
+    <!-- Buttons -->
+    <div class="grid grid-cols-4 gap-4 text-lg font-semibold">
+
+      <!-- AC + X -->
+      <button onclick="clearAll()" class="btn-danger">AC</button>
+      <button onclick="deleteLast()" class="btn-danger">X</button>
+      <button onclick="append('/')" class="btn-op">÷</button>
+      <button onclick="append('*')" class="btn-op">×</button>
+
+      <!-- Numbers -->
+      <button onclick="append('7')" class="btn-num">7</button>
+      <button onclick="append('8')" class="btn-num">8</button>
+      <button onclick="append('9')" class="btn-num">9</button>
+      <button onclick="append('-')" class="btn-op">−</button>
+
+      <button onclick="append('4')" class="btn-num">4</button>
+      <button onclick="append('5')" class="btn-num">5</button>
+      <button onclick="append('6')" class="btn-num">6</button>
+      <button onclick="append('+')" class="btn-op">+</button>
+
+      <button onclick="append('1')" class="btn-num">1</button>
+      <button onclick="append('2')" class="btn-num">2</button>
+      <button onclick="append('3')" class="btn-num">3</button>
+
+      <!-- Equal -->
+      <button onclick="calculate()" class="btn-equal row-span-2">=</button>
+
+      <button onclick="append('0')" class="btn-num col-span-2">0</button>
+      <button onclick="append('.')" class="btn-num">.</button>
+
+    </div>
+  </div>
+
+<script>
+let display = document.getElementById("display");
+let isResult = false;
+
+function append(val){
+  if(isResult){
+    display.value = "";
+    isResult = false;
+  }
+  display.value += val;
+}
+
+function clearAll(){
+  display.value = "";
+  isResult = false;
+}
+
+function deleteLast(){
+  display.value = display.value.slice(0, -1);
+}
+
+function calculate(){
+  try{
+    display.value = eval(display.value);
+    isResult = true;
+  }catch{
+    display.value = "Error";
+    isResult = true;
+  }
+}
+</script>
+
+<style>
+.btn-num, .btn-op, .btn-danger, .btn-equal{
+  padding: 16px;
+  border-radius: 18px;
+  transition: 0.25s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* Numbers */
+.btn-num{
+  background: #f3f4f6;
+  color: #374151;
+}
+.btn-num:hover{
+  background: #e5e7eb;
+  transform: translateY(-3px);
+}
+
+/* Operators */
+.btn-op{
+  background: #e0e7ff;
+  color: #3730a3;
+}
+.btn-op:hover{
+  background: #c7d2fe;
+  transform: translateY(-3px);
+}
+
+/* AC + X */
+.btn-danger{
+  background: #ef4444;
+  color: white;
+}
+.btn-danger:hover{
+  background: #dc2626;
+  transform: translateY(-3px);
+}
+
+/* Equal */
+.btn-equal{
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: white;
+  font-size: 24px;
+}
+.btn-equal:hover{
+  transform: scale(1.05);
+}
+</style>
+
+</body>
+</html>
